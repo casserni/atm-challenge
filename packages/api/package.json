@@ -1,0 +1,20 @@
+{
+  "name": "@demo/api",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist/index.ts",
+  "scripts": {
+    "start": "ts-node-dev --no-notify --respawn --transpileOnly src/server",
+    "generate": "yarn generate:nexus",
+    "generate:nexus": "ts-node --transpile-only src/schema"
+  },
+  "dependencies": {
+    "@demo/db": "0.0.0",
+    "@nexus/schema": "0.13.1",
+    "apollo-server": "2.13.1",
+    "graphql": "14.6.0",
+    "graphql-import": "^1.0.2",
+    "lodash": "^4.17.15",
+    "nexus-prisma": "0.12.0"
+  }
+}

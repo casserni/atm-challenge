@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://bank:bank@127.0.0.1:5432/bank"
+}
+
+model account_type {
+  comment  String?
+  value    String     @id
+  accounts accounts[]
+}
+
+model accounts {
+  balance                Int
+  daily_withdrawal_limit Int
+  id                     Int            @default(autoincrement()) @id
+  type                   String
+  user_id                Int
+  account_type           account_type   @relation(fields: [type], references: [value])
+  users                  users          @relation(fields: [user_id], references: [id])
+  transactions           transactions[]
+}
+
+model migrations {
+  executed_at DateTime? @default(now())
+  hash        String
+  id          Int       @id
+  name        String    @unique
+}
+
+model transaction_type {
+  comment      String?
+  value        String         @id
+  transactions transactions[]
+}
+
+model transactions {
+  account_id       Int?
+  amount           Int
+  created_at       DateTime         @default(now())
+  id               Int              @default(autoincrement()) @id
+  type             String
+  accounts         accounts?        @relation(fields: [account_id], references: [id])
+  transaction_type transaction_type @relation(fields: [type], references: [value])
+}
+
+model users {
+  created_at DateTime   @default(now())
+  id         Int        @default(autoincrement()) @id
+  name       String     @unique
+  pin        String     @unique
+  accounts   accounts[]
+}

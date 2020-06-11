@@ -1,0 +1,6 @@
+mutation Deposit($accountId: Int!, $amount: Int!) {
+  deposit(accountId: $accountId, amount: $amount) {
+    id
+    ...Account_Item
+  }
+}

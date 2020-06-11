@@ -1,0 +1,7 @@
+fragment Account_Item on accounts {
+  id
+  balance
+  daily_withdrawal_limit
+  remaining_withdrawal_limit
+  type
+}

@@ -1,0 +1,6 @@
+query Me($id: Int!) {
+  users(skip: 0, where: { id: { equals: $id } }) {
+    id
+    ...User_Item
+  }
+}

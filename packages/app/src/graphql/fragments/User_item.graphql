@@ -1,0 +1,8 @@
+fragment User_Item on users {
+  id
+  name
+  accounts {
+    id
+    ...Account_Item
+  }
+}

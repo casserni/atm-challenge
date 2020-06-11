@@ -1,0 +1,44 @@
+{
+  "name": "@demo/app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "generate": "graphql-codegen",
+    "generate:urql": "graphql-codegen"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^3.28.1",
+    "@urql/exchange-graphcache": "^2.4.2",
+    "classnames": "^2.2.6",
+    "overmind": "^23.0.1",
+    "overmind-react": "^24.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "subscriptions-transport-ws": "^0.9.16",
+    "urql": "^1.9.7"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "~1.13.2",
+    "@graphql-codegen/typescript": "~1.13.2",
+    "@graphql-codegen/typescript-operations": "~1.13.2",
+    "@graphql-codegen/typescript-resolvers": "^1.13.2",
+    "@graphql-codegen/typescript-urql": "~1.13.2",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

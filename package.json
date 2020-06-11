@@ -1,0 +1,49 @@
+{
+  "name": "atm-demo",
+  "private": true,
+  "version": "0.0.0",
+  "author": "Nicholas Cassera",
+  "engines": {
+    "node": ">=12"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "--dev--": "",
+    "start": "yarn generate && concurrently --kill-others --names \"API,APP\" --prefix \"({name})\" --prefix-colors \"yellow.bold,blue.bold\" \"yarn api start\" \"yarn app start\"",
+    "generate": "yarn workspaces run generate",
+    "--build commands--": "",
+    "--linting--": "",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:fix": "yarn lint:eslint:fix && yarn lint:prettier:fix",
+    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:eslint:fix": "yarn lint:eslint --fix",
+    "lint:prettier": "prettier --ignore-path .eslintignore --check '**/*.{js,jsx,ts,tsx}'",
+    "lint:prettier:fix": "prettier --ignore-path .eslintignore --write '**/*.{js,jsx,ts,tsx}'",
+    "--shortcuts to run commands in workspaces--": "",
+    "api": "yarn workspace @demo/api",
+    "app": "yarn workspace @demo/app",
+    "db": "yarn workspace @demo/db"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.155",
+    "@types/node": "12.12.42",
+    "@typescript-eslint/eslint-plugin": "~2.27.0",
+    "@typescript-eslint/parser": "~2.27.0",
+    "concurrently": "^5.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-simple-import-sort": "^5.0.2",
+    "nodemon": "^2.0",
+    "path": "^0.12.7",
+    "prettier": "~2.0.4",
+    "ts-node": "8.10.1",
+    "ts-node-dev": "1.0.0-pre.44",
+    "typescript": "3.8.3"
+  }
+}

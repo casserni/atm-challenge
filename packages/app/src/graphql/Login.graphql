@@ -1,0 +1,3 @@
+mutation Login($pin: String!) {
+  login(pin: $pin)
+}

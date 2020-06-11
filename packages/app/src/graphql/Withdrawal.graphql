@@ -1,0 +1,6 @@
+mutation Withdraw($accountId: Int!, $amount: Int!) {
+  withdraw(accountId: $accountId, amount: $amount) {
+    id
+    ...Account_Item
+  }
+}

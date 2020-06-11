@@ -1,0 +1,27 @@
+{
+  "name": "@demo/db",
+  "private": true,
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "docker:up": "docker-compose -f ./docker-compose.yml up --build --remove-orphans -d",
+    "postdocker:up": "yarn db:migrate && yarn db:seed",
+    "docker:down": "docker-compose -f ./docker-compose.yml down --remove-orphans",
+    "docker:nuke": "yarn docker:down -v",
+    "db:migrate": "ts-node ./scripts/migrate.ts && yarn prisma:introspect",
+    "db:seed": "ts-node ./scripts/seed.ts",
+    "generate": "yarn prisma:generate",
+    "prisma:generate": "prisma generate",
+    "prisma:introspect": "prisma introspect"
+  },
+  "dependencies": {
+    "@prisma/client": "2.0.0-beta.8"
+  },
+  "devDependencies": {
+    "@prisma/cli": "2.0.0-beta.8",
+    "cpx": "^1.5.0",
+    "faker": "^4.1.0",
+    "postgres": "^1.0.2",
+    "postgres-migrations": "^4.0.3"
+  }
+}
