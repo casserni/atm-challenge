@@ -1,6 +1,4 @@
 import './styles/index.css';
-import './styles/tailwind.css';
-import './styles/blueprint.css';
 
 import React from 'react';
 
